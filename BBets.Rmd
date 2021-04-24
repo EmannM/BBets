@@ -70,7 +70,7 @@ print(ssanswer[975])
   
 2.) A simple random sample of 35 with replacement was done to simulate the birthday of each person in a class of 35 students and see whether or not any birthdays were shared.
   
-3.) From this sample, any duplicated numbers that mean there are people who share the same birthday were identified and saved. 
+3.) From this sample, any duplicated numbers mean there were people who share the same birthday and were identified and saved. 
   
 4.) These duplicate numbers were added together to count the overall amount of students in our simulated class of 35 had matching birthdays. 
   
@@ -80,9 +80,9 @@ print(ssanswer[975])
   
 7.) A histogram was created to plot the profit made by each of these 1000 Brownlows after this process was over. The profits followed a normal distribution.
   
-8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making.
+8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making (between `r ssanswer[25]` and `r ssanswer[975]`).
   
-We have found that, in order to be fair, the fairest odds would have to be exactly or nearly 4.30:1.
+We have found that, in order to be fair, the odds would have to be exactly or very close to around 4.30:1.
   
 # What size of class makes the 2:1 bet fair?  
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
@@ -132,7 +132,7 @@ print(ssanswer[975])
   
 7.) A histogram was created to plot the profit made by each of these 1000 Brownlows after this process was over. The profits followed a normal distribution.
   
-8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making. 
+8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making (between `r ssanswer[25]` and `r ssanswer[975]`). 
   
 To make the 2:1 bet fair (meaning Brownlow's average profit is 0), the class size would be 28 or 29.  
   
@@ -185,9 +185,17 @@ print(ssanswer[975])
   
 8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making. 
   
-We have found a 95% confidence interval between `r ssanswer[25]` and `r ssanswer[975]` for the profit Brownlow is making from this bet.
+The 95% confidence interval for the profit Brownlow is making from this bet is between `r ssanswer[25]` and `r ssanswer[975]`. 
   
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
-
+  
+In conclusion, we have found that:      
+  
+1.) In order to be fair, the odds would have to be exactly or very close to around 4.30:1.  
+  
+2.) To make the 2:1 bet fair (meaning Brownlow's average profit is 0), the class size would be 28 or 29.     
+  
+3.) The 95% confidence interval for the profit Brownlow is making from this bet is between `r ssanswer[25]` and `r ssanswer[975]`.    
+  
