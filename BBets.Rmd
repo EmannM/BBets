@@ -34,8 +34,56 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
+  
+```{r}
+birthdays = 1:365
+saveanswer = vector("numeric")
+for(j in 1:1000) {
 
+savebank = 0
+for(i in 1:637) {
+classsample <- sample(birthdays, 35, replace = TRUE)
+d <- duplicated(classsample)
 
+# If we add up 'd' and get a number greater than 0, we have two people who have the same birthday.
+
+if(sum(d) > 0) {
+  savebank = savebank + 1
+} else {
+  savebank = savebank - 4.30
+}
+}
+saveanswer[j] <- savebank
+}
+```
+  
+```{r}
+hist(saveanswer)
+ssanswer <- sort(saveanswer)
+print(ssanswer[25])
+print(ssanswer[975])
+```
+  
+(The following process was run through for each odds ratio tested.) 
+  
+1.) The numbers 1 through 365 were created as a vector to represent each day of the year.
+  
+2.) A simple random sample of 35 with replacement was done to simulate the birthday of each person in a class of 35 students and see whether or not any birthdays were shared.
+  
+3.) From this sample, any duplicated numbers that mean there are people who share the same birthday were identified and saved. 
+  
+4.) These duplicate numbers were added together to count the overall amount of students in our simulated class of 35 had matching birthdays. 
+  
+5.) A loop was created to repeat this sampling process 637 times to see how much money Brownlow made (considering the fact that he gets $1 if he wins and gives $2 if nobody in the class shares a birthday with another student).
+  
+6.) Another loop was created to run the previous loop 1000 times, meaning 1000 different Brownlows will each have the same bet with the same wager 637 times. 
+  
+7.) A histogram was created to plot the profit made by each of these 1000 Brownlows after this process was over. The profits followed a normal distribution.
+  
+8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making.
+  
+We have found that, in order to be fair, the fairest odds would have to be exactly or nearly 4.30:1.
+  
 # What size of class makes the 2:1 bet fair?  
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
   
