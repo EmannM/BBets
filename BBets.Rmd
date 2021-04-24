@@ -38,8 +38,56 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 # What size of class makes the 2:1 bet fair?  
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
+  
+```{r}
+birthdays = 1:365
+saveanswer = vector("numeric")
+for(j in 1:1000) {
 
+savebank = 0
+for(i in 1:637) {
+classsample <- sample(birthdays, 29, replace = TRUE)
+d <- duplicated(classsample)
 
+# If we add up 'd' and get a number greater than 0, we have two people who have the same birthday.
+
+if(sum(d) > 0) {
+  savebank = savebank + 1
+} else {
+  savebank = savebank - 2
+}
+}
+saveanswer[j] <- savebank
+}
+```
+  
+```{r}
+hist(saveanswer)
+ssanswer <- sort(saveanswer)
+print(ssanswer[25])
+print(ssanswer[975])
+```
+    
+(The following process was run through for each class size tested.)
+  
+1.) The numbers 1 through 365 were created as a vector to represent each day of the year.
+  
+2.) A simple random sample of size n with replacement was done to simulate the birthday of each person in a class of n students and see whether or not any birthdays were shared.
+  
+3.) From this sample, any duplicated numbers that mean there are people who share the same birthday were identified and saved. 
+  
+4.) These duplicate numbers were added together to count the overall amount of students in our simulated classes who had matching birthdays. 
+  
+5.) A loop was created to repeat this sampling process 637 times to see how much money Brownlow made (considering the fact that he gets $1 if he wins and gives $2 if nobody in the class shares a birthday with another student).
+  
+6.) Another loop was created to run the previous loop 1000 times, meaning 1000 different Brownlows will each have the same bet with the same wager 637 times. 
+  
+7.) A histogram was created to plot the profit made by each of these 1000 Brownlows after this process was over. The profits followed a normal distribution.
+  
+8.) The lower (25th Brownlow) and upper (975th Brownlow) 95% confidence interval was calculated to find out how much Brownlow is making. 
+  
+To make the 2:1 bet fair (meaning Brownlow's average profit is 0), the class size would be 28 or 29.  
+  
 # In the class and payoff as described what is a 95% confidence interval for Brownlow's earnings?
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
@@ -75,7 +123,7 @@ print(ssanswer[975])
   
 1.) The numbers 1 through 365 were created as a vector to represent each day of the year.
   
-2.) A simple random sample of 35 with replacement was done to simulate the birthdays of each person in a class of 35 students and see whether or not any birthdays were shared. 
+2.) A simple random sample of 35 with replacement was done to simulate the birthday of each person in a class of 35 students and see whether or not any birthdays were shared.
   
 3.) From this sample, any duplicated numbers that mean there are people who share the same birthday were identified and saved. 
   
